@@ -1,12 +1,15 @@
 import React from 'react'
 import Part from './Part'
 
-function Content (props) {
+function Content ({ parts }) {
   return (
     <div>
-      <Part part={props?.part1} exercise={props?.exercises1} />
-      <Part part={props?.part2} exercise={props?.exercises2} />
-      <Part part={props?.part3} exercise={props?.exercises3} />    
+      {
+        parts.map(part=>(
+          <Part key={part.name} part={part?.name} exercise={part?.exercises} />
+
+        ))
+      }  
     </div>
   )
 }
