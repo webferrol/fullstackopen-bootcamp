@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Header from "./components/Header"
 import Button from "./components/Button"
+import Statics from "./components/Statitiscs"
 
 export default function UnicafeApp () {
   // save clicks of each button to its own state
@@ -8,7 +9,7 @@ export default function UnicafeApp () {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
-  const getTotal = () => good + neutral + bad
+
 
   const setAdd = (setValue) => {
     setValue(val => val + 1)
@@ -21,6 +22,7 @@ export default function UnicafeApp () {
     }
   }
 
+
   return (
     <div>
       <Header text="give feedback"/>
@@ -29,12 +31,11 @@ export default function UnicafeApp () {
         <Button handleClick={add(setNeutral)} text="neutral" />
         <Button handleClick={() => setAdd(setBad)} text="bad" />
       </div>
-      <div>good {good}</div>
-      <div>neutral {neutral}</div>
-      <div>bad {bad}</div>
-      <div>all {getTotal()}</div>
-      <div>average {(good - bad) / getTotal()} </div>
-      <div>positive { good * 100 / getTotal() } %</div>
+      <Statics 
+        good={good}
+        neutral={neutral}
+        bad={bad}
+      />      
     </div>
   )
 }
