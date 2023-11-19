@@ -1,13 +1,15 @@
 import { useState } from 'react'
 
-import initValue from './libs/persons'
+// import initValue from './libs/persons'
 import Persons from './components/Persons'
 import PersonForm from './components/PersonForm'
 import Filters from './components/Filters'
+import usePersons from './hooks/usePersons'
 
 function App () {
-  const [persons, setPersons] = useState(initValue)
   const [searchValue, setSearchValue] = useState('')
+
+  const { persons, addPerson } = usePersons()
 
   const handleSearch = value => {
     setSearchValue(value)
@@ -20,7 +22,7 @@ function App () {
       return
     }
 
-    setPersons([...persons, { name: newName, phone: newPhone }])
+    addPerson({ id: crypto.randomUUID(), name: newName, number: newPhone })
   }
 
   const filterPersons = () => persons.filter(

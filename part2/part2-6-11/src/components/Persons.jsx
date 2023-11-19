@@ -5,7 +5,7 @@ export default function Persons ({ persons }) {
     <h2>Numbers</h2>
     {
       persons.map(person => (
-        <div key={crypto.randomUUID()}>{person.name} {person?.phone}</div>
+        <div key={crypto.randomUUID()}>{person.name} {person?.number}</div>
       ))
     }
   </section>

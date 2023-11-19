@@ -6,7 +6,7 @@ export default function PersonForm (
     onNewPerson
   }) {
   const [newName, setNewName] = useState('')
-  const [newPhone, setNewPhone] = useState('')
+  const [newNumber, setNewNumber] = useState('')
 
   const handleChange = (setValue) => ({ currentTarget }) => {
     setValue(currentTarget.value)
@@ -15,7 +15,7 @@ export default function PersonForm (
   const handleSubmit = e => {
     e.preventDefault()
     if (!newName) return
-    onNewPerson(newName, newPhone)
+    onNewPerson(newName, newNumber)
   }
 
   return (
@@ -37,8 +37,8 @@ export default function PersonForm (
           <label htmlFor="phone">
             Phone:
             <input
-              onChange={handleChange(setNewPhone)}
-              value = {newPhone}
+              onChange={handleChange(setNewNumber)}
+              value = {newNumber}
               id="phone"
               type="tel" />
           </label>
