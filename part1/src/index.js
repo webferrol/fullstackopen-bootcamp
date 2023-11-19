@@ -1,44 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Header from './components/Header'
-import Content from './components/Content'
-import Total from './components/Total'
+// import App from './UnifcafeApp'
+import AnecdotesApp from './AnecdotesApp'
+import { anecdotes } from './lib/data'
 
 
 
-const App = () => {
-  const course = {
-    name: 'Half Stack application development',
-    parts: [
-      {
-        name: 'Fundamentals of React',
-        exercises: 10
-      },
-      {
-        name: 'Using props to pass data',
-        exercises: 7
-      },
-      {
-        name: 'State of a component',
-        exercises: 14
-      }
-    ]
-  }
-  
-    return (
-      <div>
-        <Header course={course.name} />
-        <Content parts={course.parts} />
-        <Total parts={course.parts} />
-      </div>
-    
-  )
-}
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <AnecdotesApp anecdotes={anecdotes}/>
   </React.StrictMode>
 )
 
